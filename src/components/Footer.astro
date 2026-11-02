@@ -1,0 +1,28 @@
+---
+import { profile } from "../data/profile.js";
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <p class="footer-mark">{profile.name}</p>
+      <div class="footer-columns">
+        <div>
+          <p class="overline">Main</p>
+          <a href="/">Work</a>
+          <a href="/info">Info</a>
+        </div>
+        <div>
+          <p class="overline">Contact</p>
+          <a href={profile.linkedin.href} rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+          <a href={`mailto:${profile.email}`}>Email</a>
+          <a href={profile.phone.href}>{profile.phone.display}</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {new Date().getFullYear()} {profile.name}</p>
+      <p>{profile.location}</p>
+    </div>
+  </div>
+</footer>

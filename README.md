@@ -1,6 +1,8 @@
 # Jason Dorey
 
-A one-page static site for Jason Dorey. Astro compiles it to HTML in `dist`. There is no client-side app and no Cloudflare adapter.
+A static site for Jason Dorey. Astro compiles it to HTML in `dist`. There is no client-side app and no Cloudflare adapter.
+
+Work is the front page. Info holds the profile, and each role has its own page.
 
 The copy comes from his CV. The photographs are compressed copies of the supplied portraits and the Ho Chi Minh City talk.
 

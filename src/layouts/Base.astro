@@ -1,12 +1,15 @@
 ---
 import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
   description: string;
+  current: "work" | "info";
 }
 
-const { title, description } = Astro.props;
+const { title, description, current } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,14 +20,18 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Jason Dorey" />
-    <meta name="theme-color" content="#f3efe6" />
+    <meta name="theme-color" content="#101010" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="profile" />
-    <meta property="og:locale" content="en_CA" />
   </head>
   <body>
+    <div class="loader" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <Nav current={current} />
     <slot />
+    <Footer />
   </body>
 </html>
