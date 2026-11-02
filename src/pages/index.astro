@@ -1,0 +1,187 @@
+---
+import Base from "../layouts/Base.astro";
+import tie from "../assets/headshot-tie.webp";
+import openCollar from "../assets/headshot-open-collar.webp";
+import speaking from "../assets/speaking.webp";
+import { pageDescription, pageTitle, profile } from "../data/profile.js";
+---
+
+<Base title={pageTitle} description={pageDescription}>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top">{profile.name}</a>
+      <div class="header-meta">
+        <p class="location">{profile.location}</p>
+        <nav aria-label="On this page">
+          <ul>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="wrap">
+      <section class="hero" id="top" aria-labelledby="name">
+        <div class="hero-intro">
+          <h1 id="name">{profile.name}</h1>
+          <p class="role">
+            {profile.role.map((line) => <span>{line}</span>)}
+          </p>
+          <p class="appointment">
+            <span>{profile.currentTitle}</span>
+            <span>{profile.currentOrg}</span>
+          </p>
+        </div>
+        <div class="hero-photo">
+          <img
+            src={tie.src}
+            width={tie.width}
+            height={tie.height}
+            alt={profile.portraits.primaryAlt}
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-rest">
+            <div class="summary">
+              {profile.summary.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+            <ul class="contact-list">
+              <li>
+                <a href={profile.phone.href}>{profile.phone.display}</a>
+              </li>
+              <li>
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </li>
+              <li>
+                <a
+                  href={profile.linkedin.href}
+                  rel="me noopener noreferrer"
+                  target="_blank">{profile.linkedin.display}</a>
+              </li>
+            </ul>
+          </div>
+      </section>
+
+      <section aria-labelledby="focus-heading">
+        <h2 id="focus-heading">Leadership focus</h2>
+        <ul class="focus-list">
+          {profile.focus.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Selected experience</h2>
+        <div class="jobs">
+          {
+            profile.experience.map((job) => (
+              <article class="job">
+                <p class="dates">
+                  <time datetime={job.start.datetime}>{job.start.label}</time>
+                  {" – "}
+                  {job.end ? (
+                    <time datetime={job.end.datetime}>{job.end.label}</time>
+                  ) : (
+                    "Present"
+                  )}
+                </p>
+                <div class="job-main">
+                  <h3>{job.title}</h3>
+                  <p class="org">{job.org}</p>
+                  <ul>
+                    {job.points.map((point) => (
+                      <li>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <figure class="talk">
+          <img
+            src={speaking.src}
+            width={speaking.width}
+            height={speaking.height}
+            alt={profile.speaking.alt}
+            decoding="async"
+          />
+          <figcaption>{profile.speaking.caption}</figcaption>
+        </figure>
+      </section>
+
+      <section id="background" aria-label="Education and technology">
+        <div class="background-grid">
+          <div>
+            <h2>Education</h2>
+            <ul class="edu-list">
+              {
+                profile.education.map((item) => (
+                  <li>
+                    <span class="credential">{item.credential}</span>
+                    <span class="school">{item.school}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div>
+            <h2>Technology &amp; digital experience</h2>
+            <dl class="tech">
+              {
+                profile.technology.map((group) => (
+                  <div>
+                    <dt>{group.label}</dt>
+                    <dd>{group.text}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="contact-band" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <h2>Contact</h2>
+        <p class="contact-role">
+          <span>{profile.currentTitle}</span>
+          <span>{profile.currentOrg}</span>
+        </p>
+        <p class="contact-location">{profile.location}</p>
+        <address>
+          <ul>
+            <li>
+              <a href={profile.phone.href}>{profile.phone.display}</a>
+            </li>
+            <li>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <a
+                href={profile.linkedin.href}
+                rel="me noopener noreferrer"
+                target="_blank">{profile.linkedin.display}</a>
+            </li>
+          </ul>
+        </address>
+      </div>
+      <img
+        class="contact-photo"
+        src={openCollar.src}
+        width={openCollar.width}
+        height={openCollar.height}
+        alt={profile.portraits.alternateAlt}
+        decoding="async"
+      />
+    </div>
+  </footer>
+</Base>
