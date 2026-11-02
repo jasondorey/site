@@ -19,8 +19,8 @@ export const profile = {
   },
   email: "jason.dorey@icloud.com",
   linkedin: {
-    display: "linkedin.com/in/jasonrdorey",
-    href: "https://www.linkedin.com/in/jasonrdorey",
+    display: "https://www.linkedin.com/in/jason-r-dorey/",
+    href: "https://www.linkedin.com/in/jason-r-dorey/",
   },
   summary: [
     "Director-level technology, digital transformation, AI, and EdTech leader with nearly 20 years of experience across technology strategy, product development, business operations, and international education.",
