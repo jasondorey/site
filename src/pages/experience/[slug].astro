@@ -1,0 +1,48 @@
+---
+import Base from "../../layouts/Base.astro";
+import speaking from "../../assets/speaking.webp";
+import { profile } from "../../data/profile.js";
+
+export function getStaticPaths() {
+  return profile.experience.map((job) => ({
+    params: { slug: job.slug },
+    props: { job },
+  }));
+}
+
+const { job } = Astro.props;
+const title = `${job.title} — ${profile.name}`;
+const description = `${job.title}, ${job.org}. ${job.points[0]}`;
+---
+
+<Base title={title} description={description} current="work">
+  <main id="content" class="detail">
+    <a class="back" href="/#experience">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+      Work
+    </a>
+    <p class="overline">{job.org}</p>
+    <h1>{job.title}</h1>
+    <p class="detail-dates">
+      <time datetime={job.start.datetime}>{job.start.label}</time>
+      {" – "}
+      {job.end ? <time datetime={job.end.datetime}>{job.end.label}</time> : "Present"}
+    </p>
+    {
+      job.visual === "speaking" && (
+        <figure>
+          <img
+            src={speaking.src}
+            width={speaking.width}
+            height={speaking.height}
+            alt={profile.speaking.alt}
+          />
+          <figcaption>{profile.speaking.caption}</figcaption>
+        </figure>
+      )
+    }
+    <ul>
+      {job.points.map((point) => <li>{point}</li>)}
+    </ul>
+  </main>
+</Base>

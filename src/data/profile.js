@@ -38,6 +38,8 @@ export const profile = {
   ],
   experience: [
     {
+      slug: "akd",
+      visual: "speaking",
       org: "AKD International Inc.",
       title: "Director, AI Learning Solutions",
       start: { label: "June 2019", datetime: "2019-06" },
@@ -53,6 +55,7 @@ export const profile = {
       ],
     },
     {
+      slug: "glg",
       org: "Gerson Lehrman Group (GLG)",
       title: "Expert Network Advisor",
       start: { label: "July 2025", datetime: "2025-07" },
@@ -62,6 +65,7 @@ export const profile = {
       ],
     },
     {
+      slug: "matata",
       org: "Matata Education",
       title: "Managing Director",
       start: { label: "June 2017", datetime: "2017-06" },
@@ -73,6 +77,7 @@ export const profile = {
       ],
     },
     {
+      slug: "ibo",
       org: "International Baccalaureate Organization",
       title: "Northern China Network Chair",
       start: { label: "August 2013", datetime: "2013-08" },
@@ -82,6 +87,7 @@ export const profile = {
       ],
     },
     {
+      slug: "cisb",
       org: "Canadian International School of Beijing",
       title: "IB DP Coordinator",
       start: { label: "August 2007", datetime: "2007-08" },
@@ -133,3 +139,7 @@ export const profile = {
     alternateAlt: "Portrait of Jason Dorey in a navy suit, open collar.",
   },
 };
+
+export function formatDates(job) {
+  return job.end ? `${job.start.label} – ${job.end.label}` : `${job.start.label} – Present`;
+}

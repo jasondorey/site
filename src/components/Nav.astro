@@ -1,0 +1,34 @@
+---
+import { profile } from "../data/profile.js";
+
+interface Props {
+  current: "work" | "info";
+}
+
+const { current } = Astro.props;
+---
+
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-nav">
+  <div class="nav-bar">
+    <a class="logo" href="/">
+      <span class="logo-name">{profile.name}</span>
+      <span class="logo-role">{profile.currentTitle}</span>
+    </a>
+    <div class="nav-pill" data-current={current}>
+      <span class="nav-indicator" aria-hidden="true"></span>
+      <a href="/" aria-current={current === "work" ? "page" : undefined}>Work</a>
+      <a href="/info" aria-current={current === "info" ? "page" : undefined}>Info</a>
+    </div>
+    <div class="nav-links">
+      <a href={profile.linkedin.href} rel="me noopener noreferrer" target="_blank">
+        LinkedIn
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+      </a>
+      <a href={`mailto:${profile.email}`}>
+        Email
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+      </a>
+    </div>
+  </div>
+</header>

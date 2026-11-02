@@ -1,0 +1,100 @@
+---
+import Base from "../layouts/Base.astro";
+import openCollar from "../assets/headshot-open-collar.webp";
+import { formatDates, pageDescription, profile } from "../data/profile.js";
+
+const title = "Jason Dorey — Info";
+---
+
+<Base title={title} description={pageDescription} current="info">
+  <main id="content" class="info">
+    <header class="info-hero">
+      <p class="overline with-dot">
+        <span class="dot-mark" aria-hidden="true"></span>
+        {profile.name} — {profile.currentTitle}
+      </p>
+      <h1>
+        {profile.role.map((line) => <span>{line}</span>)}
+      </h1>
+      <p class="info-kicker">
+        {profile.currentTitle}, {profile.currentOrg}. {profile.location}.
+      </p>
+    </header>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      {profile.summary.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section aria-labelledby="focus-heading">
+      <h2 id="focus-heading">Leadership focus</h2>
+      <ul class="focus-grid">
+        {profile.focus.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="roles-heading">
+      <h2 id="roles-heading">Experience</h2>
+      <div class="role-list">
+        {
+          profile.experience.map((job) => (
+            <a class="role-row" href={`/experience/${job.slug}`}>
+              <span>
+                <span class="role-org">{job.org}</span>
+                <span class="role-title">{job.title}</span>
+              </span>
+              <span class="role-dates">{formatDates(job)}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ul class="plain-list">
+        {
+          profile.education.map((item) => (
+            <li>
+              <span>{item.credential}</span>
+              <span>{item.school}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="tech-heading">
+      <h2 id="tech-heading">Technology &amp; digital experience</h2>
+      <dl>
+        {
+          profile.technology.map((group) => (
+            <div>
+              <dt>{group.label}</dt>
+              <dd>{group.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <figure class="info-photo">
+      <img
+        src={openCollar.src}
+        width={openCollar.width}
+        height={openCollar.height}
+        alt={profile.portraits.alternateAlt}
+      />
+    </figure>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <address>
+        <a href={profile.phone.href}>{profile.phone.display}</a>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a href={profile.linkedin.href} rel="me noopener noreferrer" target="_blank">{profile.linkedin.display}</a>
+        <span>{profile.location}</span>
+      </address>
+    </section>
+  </main>
+</Base>
