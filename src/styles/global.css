@@ -604,6 +604,70 @@ address a {
   background: #f2f2f2;
 }
 
+.portfolio {
+  margin-top: 4.5rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1.25rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-grid li {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-grid li::before {
+  content: none;
+}
+
+.portfolio-grid a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.org-well {
+  display: grid;
+  place-items: center;
+  height: 9.5rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 0.9rem;
+  background: #f4f4f4;
+}
+
+.org-well.is-dark {
+  background: #171717;
+  box-shadow: inset 0 0 0 1px #f2f2f21a;
+}
+
+.org-well img {
+  width: auto;
+  max-width: 100%;
+  max-height: 6.75rem;
+  border-radius: 0;
+}
+
+.org-name {
+  color: #dedede;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.portfolio-grid a:hover .org-name {
+  color: #fff;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 5rem 1.5rem 4.5rem;
@@ -736,6 +800,10 @@ address a {
 
   .project-card {
     min-height: 0;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
 
   .card-field {
