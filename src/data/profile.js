@@ -13,10 +13,6 @@ export const profile = {
   currentTitle: "Director, AI Learning Solutions",
   currentOrg: "AKD International Inc.",
   location: "Halifax, Nova Scotia",
-  phone: {
-    display: "(902) 300-7400",
-    href: "tel:+19023007400",
-  },
   email: "jason.dorey@icloud.com",
   linkedin: {
     display: "https://www.linkedin.com/in/jason-r-dorey/",
