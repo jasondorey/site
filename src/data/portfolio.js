@@ -1,4 +1,5 @@
-// Official marks. ISN’s own header file is white, so that tile is dark.
+// Official marks. ISN publishes a white header file; the copy here is
+// recolored to #59090e so it can sit on the same light tile as the others.
 // AI Mentor’s site publishes the app icon only; the full lockup here is the
 // one CanGlory hosts for AI Mentor. CanGlory’s SVG draws “International
 // Academy” and the crest initials in Copperplate, which is not embedded.
@@ -25,7 +26,6 @@ export const akdPortfolio = [
     name: "International School of Nanshan Shenzhen",
     href: "https://www.isnsz.com",
     logo: isnShenzhen,
-    dark: true,
   },
   {
     name: "Everon Learning Solutions",
