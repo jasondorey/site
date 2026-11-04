@@ -374,6 +374,17 @@ h1 span {
   gap: 1rem;
 }
 
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.card-top svg {
+  flex: none;
+}
+
 .card-title {
   font-size: 1.5rem;
   font-weight: 500;
@@ -402,6 +413,16 @@ h1 span {
   margin-top: 2rem;
   border-radius: 0.8rem;
   box-shadow: 0 30px 50px #0006;
+}
+
+.project-card .role-mark img,
+.detail .role-mark img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .card-field {
@@ -609,6 +630,10 @@ address a {
 
 .back {
   margin-bottom: 2.5rem;
+}
+
+.detail-logo {
+  margin-bottom: 1.25rem;
 }
 
 .detail h1 {

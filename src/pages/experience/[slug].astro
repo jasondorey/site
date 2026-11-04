@@ -1,6 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import speaking from "../../assets/speaking.webp";
+import cisbLibrary from "../../assets/cisb-coordinator.webp";
+import LogoMark from "../../components/LogoMark.astro";
 import { profile } from "../../data/profile.js";
 import { akdPortfolio } from "../../data/portfolio.js";
 
@@ -17,6 +19,19 @@ const appointments = job.roles ?? [
 ];
 const title = `${job.title} — ${profile.name}`;
 const description = `${appointments[0].title}, ${job.org}. ${appointments[0].points[0]}`;
+const figures = {
+  speaking: {
+    image: speaking,
+    alt: profile.speaking.alt,
+    caption: profile.speaking.caption,
+  },
+  library: {
+    image: cisbLibrary,
+    alt: "Jason Dorey in a navy suit, standing in a school library. The photo is labeled Jason Dorey, IB Diploma Program Coordinator.",
+    caption: "IB Diploma Program Coordinator, in the school library.",
+  },
+};
+const figure = figures[job.detailFigure] ?? (job.visual === "speaking" ? figures.speaking : null);
 ---
 
 <Base title={title} description={description} current="work">
@@ -25,6 +40,7 @@ const description = `${appointments[0].title}, ${job.org}. ${appointments[0].poi
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
       Work
     </a>
+    <LogoMark slug={job.slug} class="detail-logo" />
     <p class="overline">{job.org}</p>
     {
       appointments.map((role, index) => (
@@ -36,15 +52,15 @@ const description = `${appointments[0].title}, ${job.org}. ${appointments[0].poi
             {" – "}
             {role.end ? <time datetime={role.end.datetime}>{role.end.label}</time> : "Present"}
           </p>
-          {index === 0 && job.visual === "speaking" && (
+          {index === 0 && figure && (
             <figure>
               <img
-                src={speaking.src}
-                width={speaking.width}
-                height={speaking.height}
-                alt={profile.speaking.alt}
+                src={figure.image.src}
+                width={figure.image.width}
+                height={figure.image.height}
+                alt={figure.alt}
               />
-              <figcaption>{profile.speaking.caption}</figcaption>
+              <figcaption>{figure.caption}</figcaption>
             </figure>
           )}
           <ul>

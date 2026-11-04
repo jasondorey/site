@@ -1,0 +1,18 @@
+---
+import { experienceLogos } from "../data/experience-logos.js";
+
+const { slug, class: className } = Astro.props;
+const mark = experienceLogos[slug];
+const logo = mark?.image;
+const src = typeof logo === "string" ? logo : logo?.src;
+const width = typeof logo === "string" ? mark?.width : logo?.width;
+const height = typeof logo === "string" ? mark?.height : logo?.height;
+---
+
+{
+  src && (
+    <span class:list={["role-mark", className]} data-mark={slug}>
+      <img src={src} width={width} height={height} alt="" />
+    </span>
+  )
+}
