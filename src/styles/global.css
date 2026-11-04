@@ -665,14 +665,23 @@ address a {
 }
 
 .detail figure {
-  margin: 2.5rem 0 0;
+  max-width: 32rem;
+  margin: 2.25rem 0 0;
+}
+
+.detail figure img {
+  border: 1px solid var(--line);
 }
 
 .detail figcaption {
-  max-width: 42rem;
-  margin-top: 0.75rem;
+  margin-top: 0.65rem;
   color: var(--muted);
   font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.detail figure + ul {
+  margin-top: 1.75rem;
 }
 
 .detail ul {
