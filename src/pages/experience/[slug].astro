@@ -12,8 +12,11 @@ export function getStaticPaths() {
 }
 
 const { job } = Astro.props;
+const appointments = job.roles ?? [
+  { title: job.title, start: job.start, end: job.end, points: job.points },
+];
 const title = `${job.title} — ${profile.name}`;
-const description = `${job.title}, ${job.org}. ${job.points[0]}`;
+const description = `${appointments[0].title}, ${job.org}. ${appointments[0].points[0]}`;
 ---
 
 <Base title={title} description={description} current="work">
@@ -23,28 +26,33 @@ const description = `${job.title}, ${job.org}. ${job.points[0]}`;
       Work
     </a>
     <p class="overline">{job.org}</p>
-    <h1>{job.title}</h1>
-    <p class="detail-dates">
-      <time datetime={job.start.datetime}>{job.start.label}</time>
-      {" – "}
-      {job.end ? <time datetime={job.end.datetime}>{job.end.label}</time> : "Present"}
-    </p>
     {
-      job.visual === "speaking" && (
-        <figure>
-          <img
-            src={speaking.src}
-            width={speaking.width}
-            height={speaking.height}
-            alt={profile.speaking.alt}
-          />
-          <figcaption>{profile.speaking.caption}</figcaption>
-        </figure>
-      )
+      appointments.map((role, index) => (
+        <section class="appointment">
+          {index === 0 ? <h1>{role.title}</h1> : <h2>{role.title}</h2>}
+          <p class="detail-dates">
+            {job.place && <span class="detail-place">{job.place}</span>}
+            <time datetime={role.start.datetime}>{role.start.label}</time>
+            {" – "}
+            {role.end ? <time datetime={role.end.datetime}>{role.end.label}</time> : "Present"}
+          </p>
+          {index === 0 && job.visual === "speaking" && (
+            <figure>
+              <img
+                src={speaking.src}
+                width={speaking.width}
+                height={speaking.height}
+                alt={profile.speaking.alt}
+              />
+              <figcaption>{profile.speaking.caption}</figcaption>
+            </figure>
+          )}
+          <ul>
+            {role.points.map((point) => <li>{point}</li>)}
+          </ul>
+        </section>
+      ))
     }
-    <ul>
-      {job.points.map((point) => <li>{point}</li>)}
-    </ul>
     {
       job.slug === "akd" && (
         <section class="portfolio" aria-labelledby="portfolio-heading">
