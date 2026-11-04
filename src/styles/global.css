@@ -535,14 +535,11 @@ dd {
   flex: none;
   align-items: center;
   justify-content: center;
-  width: 5.5rem;
-  height: 2.6rem;
-}
-
-.role-mark.is-light {
-  padding: 0.28rem 0.4rem;
-  border-radius: 0.4rem;
-  background: #f4f4f4;
+  width: 6.5rem;
+  height: 3.35rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 0.45rem;
+  background: #fff;
 }
 
 .role-mark img {
@@ -550,7 +547,24 @@ dd {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Wide lockups and compact seals share one card. Cap each mark so the
+   visible artwork lands at a similar size instead of a square filling
+   the short side or a wordmark filling the long side. */
+.role-mark[data-mark="akd"] img,
+.role-mark[data-mark="glg"] img {
+  max-height: 1.95rem;
+}
+
+.role-mark[data-mark="cisb"] img {
+  max-height: 2.2rem;
+}
+
+.role-mark[data-mark="matata"] img,
+.role-mark[data-mark="ibo"] img {
+  max-height: 2.5rem;
 }
 
 .role-org,
@@ -843,7 +857,7 @@ address a {
   }
 
   .role-dates {
-    padding-left: calc(5.5rem + 0.9rem);
+    padding-left: calc(6.5rem + 0.9rem);
   }
 }
 
