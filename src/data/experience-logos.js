@@ -1,7 +1,7 @@
-// Marks shown beside Info-page experience rows.
-// GLG’s nav wordmark is painted in the page ink (#f2f2f2); the paths are from glg.com.
-// The IB file is the white logo published by the International Baccalaureate.
-// CIS Beijing’s lockup is dark, so that row uses a light plate.
+// Marks beside Info-page experience rows, each on the same white card.
+// GLG’s paths are the glg.com nav wordmark, painted dark so they read on white.
+// The IB file is the published white knockout; it is painted dark so the letters
+// stay visible on the white card.
 
 import akd from "../assets/logos/akd.png";
 import glg from "../assets/logos/glg.svg";
@@ -14,5 +14,5 @@ export const experienceLogos = {
   glg: { image: glg, width: 77, height: 31 },
   matata: { image: matata },
   ibo: { image: ibo, width: 198, height: 198 },
-  cisb: { image: cisBeijing, light: true },
+  cisb: { image: cisBeijing },
 };
