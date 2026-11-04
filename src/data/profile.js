@@ -63,33 +63,78 @@ export const profile = {
     {
       slug: "matata",
       org: "Matata Education",
+      place: "Beijing, China",
       title: "Managing Director",
       start: { label: "June 2017", datetime: "2017-06" },
-      end: { label: "August 2019", datetime: "2019-08" },
+      end: { label: "December 2019", datetime: "2019-12" },
       points: [
-        "Led the development and scale-up of an education-services company in Mainland China, establishing the operating model, strategic partnerships, business processes, and program-delivery infrastructure needed to move from concept to active operations.",
-        "Built operating processes and delivery standards for K–12 experiential education programs across Mainland China.",
-        "Hired and led a seven-person team responsible for program delivery, partnerships, and operations.",
+        "Designed and facilitated experiential education programs for K–12 schools across Mainland China, ensuring alignment with learning objectives and stakeholder expectations.",
+        "Established scalable business processes to drive revenue growth, optimize operational efficiency, and improve profitability through budget management and cost control.",
+        "Identified and negotiated high-impact partnerships with key industry players, expanding market reach and brand visibility.",
+        "Developed and implemented standard operating procedures to support regulatory compliance, operational efficiency, and scalability of program delivery.",
       ],
     },
     {
       slug: "ibo",
       org: "International Baccalaureate Organization",
-      title: "Northern China Network Chair",
+      place: "Beijing, China",
+      title: "Examiner, Network Chair",
       start: { label: "August 2013", datetime: "2013-08" },
-      end: { label: "June 2017", datetime: "2017-06" },
+      end: { label: "May 2019", datetime: "2019-05" },
       points: [
-        "Led a regional network of IB coordinators across Northern China and Mongolia, including chairing quarterly meetings, acting as primary IBO liaison, and directing regional conference coordination.",
+        "Appointed by the International Baccalaureate Organization to grade externally assessed work and to moderate internally assessed components against prescribed criteria or mark schemes for the IB Economics course.",
+      ],
+      roles: [
+        {
+          title: "Examiner",
+          start: { label: "August 2013", datetime: "2013-08" },
+          end: { label: "May 2019", datetime: "2019-05" },
+          points: [
+            "Appointed by the International Baccalaureate Organization to grade externally assessed work and to moderate internally assessed components against prescribed criteria or mark schemes for the IB Economics course.",
+          ],
+        },
+        {
+          title: "Network Chair",
+          start: { label: "August 2013", datetime: "2013-08" },
+          end: { label: "May 2019", datetime: "2019-05" },
+          points: [
+            "Led a network of coordinators from all IB World Schools across Northern China (Beijing, Changchun, Tianjin, Shenyang, Dalian) and Mongolia. Duties included chairing quarterly meetings, liaising with the International Baccalaureate Organization, and organizing the bi-annual regional network conference.",
+          ],
+        },
       ],
     },
     {
       slug: "cisb",
       org: "Canadian International School of Beijing",
-      title: "IB DP Coordinator",
+      place: "Beijing, China",
+      title: "IB DP Coordinator, Middle/High Teacher",
       start: { label: "August 2007", datetime: "2007-08" },
       end: { label: "June 2017", datetime: "2017-06" },
       points: [
-        "Led IB Diploma Programme coordination, teacher development, policy implementation, accreditation/evaluation, and cross-functional academic initiatives.",
+        "Mentored and coached teachers in best practices, fostering professional growth and curriculum alignment. Led workshops and facilitated ongoing professional development to enhance instructional effectiveness.",
+      ],
+      roles: [
+        {
+          title: "IB DP Coordinator",
+          start: { label: "August 2013", datetime: "2013-08" },
+          end: { label: "June 2017", datetime: "2017-06" },
+          points: [
+            "Mentored and coached teachers in best practices, fostering professional growth and curriculum alignment. Led workshops and facilitated ongoing professional development to enhance instructional effectiveness.",
+            "Developed and implemented policies and procedures to support teaching and learning, ensuring compliance with IB requirements and continuous programme improvement.",
+            "Chaired the IB Diploma Programme five-year evaluation, leading self-study processes, stakeholder consultations, and report preparation to maintain programme authorization.",
+            "Served as SAT Coordinator and SAT Services for Students with Disabilities (SSD) Coordinator, ensuring equitable access to standardized testing.",
+          ],
+        },
+        {
+          title: "Middle/High Teacher",
+          start: { label: "August 2007", datetime: "2007-08" },
+          end: { label: "June 2013", datetime: "2013-06" },
+          points: [
+            "Designed and refined IBDP Economics and IBDP Business Management course materials to align with IB standards, emphasizing conceptual understanding and interdisciplinary connections.",
+            "Guided students in developing analytical, research, and communication skills, leading to strong performance in IB assessments and university readiness.",
+            "Engaged students through case studies, simulations, and inquiry-driven projects, making learning relevant to global economic and business contexts.",
+          ],
+        },
       ],
     },
   ],
