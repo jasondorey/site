@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import tie from "../assets/headshot-tie.webp";
 import speaking from "../assets/speaking.webp";
+import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, pageTitle, profile } from "../data/profile.js";
 ---
 
@@ -47,7 +48,10 @@ import { formatDates, pageDescription, pageTitle, profile } from "../data/profil
           profile.experience.map((job) => (
             <a class="project-card" href={`/experience/${job.slug}`}>
               <span class="card-top">
-                <span class="card-title">{job.title}</span>
+                <span class="card-heading">
+                  <LogoMark slug={job.slug} />
+                  <span class="card-title">{job.title}</span>
+                </span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17L17 7M17 7H9M17 7v8" fill="none" stroke="currentColor" stroke-width="1.5" />
                 </svg>

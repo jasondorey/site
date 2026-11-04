@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import openCollar from "../assets/headshot-open-collar.webp";
-import { experienceLogos } from "../data/experience-logos.js";
+import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, profile } from "../data/profile.js";
 
 const title = "Jason Dorey — Info";
@@ -38,18 +38,10 @@ const title = "Jason Dorey — Info";
       <h2 id="roles-heading">Experience</h2>
       <div class="role-list">
         {
-          profile.experience.map((job) => {
-            const mark = experienceLogos[job.slug];
-            const logo = mark?.image;
-            const src = typeof logo === "string" ? logo : logo?.src;
-            const width = typeof logo === "string" ? mark.width : logo?.width;
-            const height = typeof logo === "string" ? mark.height : logo?.height;
-            return (
+          profile.experience.map((job) => (
               <a class="role-row" href={`/experience/${job.slug}`}>
                 <span class="role-id">
-                  <span class="role-mark" data-mark={job.slug}>
-                    <img src={src} width={width} height={height} alt="" />
-                  </span>
+                  <LogoMark slug={job.slug} />
                   <span>
                     <span class="role-org">{job.org}</span>
                     <span class="role-title">{job.title}</span>
@@ -57,8 +49,7 @@ const title = "Jason Dorey — Info";
                 </span>
                 <span class="role-dates">{formatDates(job)}</span>
               </a>
-            );
-          })
+          ))
         }
       </div>
     </section>

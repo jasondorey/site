@@ -1,4 +1,4 @@
-// Marks beside Info-page experience rows, each on the same white card.
+// Company marks on the same white card: Info experience, Work cards, and detail pages.
 // GLG’s paths are the glg.com nav wordmark, painted dark so they read on white.
 // The IB file is the published white knockout; it is painted dark so the letters
 // stay visible on the white card.
