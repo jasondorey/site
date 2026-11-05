@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import openCollar from "../assets/headshot-open-collar.webp";
 import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, profile } from "../data/profile.js";
 
@@ -80,24 +79,6 @@ const title = "Jason Dorey — Info";
           ))
         }
       </dl>
-    </section>
-
-    <figure class="info-photo">
-      <img
-        src={openCollar.src}
-        width={openCollar.width}
-        height={openCollar.height}
-        alt={profile.portraits.alternateAlt}
-      />
-    </figure>
-
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <address>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        <a href={profile.linkedin.href} rel="me noopener noreferrer" target="_blank">{profile.linkedin.display}</a>
-        <span>{profile.location}</span>
-      </address>
     </section>
   </main>
 </Base>

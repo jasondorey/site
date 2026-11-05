@@ -602,27 +602,9 @@ dd {
   margin: 0.25rem 0 0;
 }
 
-.info-photo {
-  margin: 5rem 0 0;
-}
-
-.info-photo img,
 .detail img {
   width: 100%;
   border-radius: 1rem;
-}
-
-address {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
-  font-style: normal;
-}
-
-address a {
-  font-weight: 600;
-  overflow-wrap: anywhere;
 }
 
 .detail-logo {
