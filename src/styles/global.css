@@ -200,8 +200,7 @@ a {
   gap: 0.5rem;
 }
 
-.nav-links a,
-.back {
+.nav-links a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -218,7 +217,6 @@ a {
 }
 
 .nav-links a:hover,
-.back:hover,
 .project-card:hover {
   border-color: #f2f2f259;
   background: #f2f2f214;
@@ -226,8 +224,7 @@ a {
 
 .nav-links svg,
 .card-top svg,
-.scroll-cue svg,
-.back svg {
+.scroll-cue svg {
   width: 0.9rem;
   height: 0.9rem;
 }
@@ -626,10 +623,6 @@ address {
 address a {
   font-weight: 600;
   overflow-wrap: anywhere;
-}
-
-.back {
-  margin-bottom: 2.5rem;
 }
 
 .detail-logo {
