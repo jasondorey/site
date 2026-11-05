@@ -760,7 +760,7 @@ address a {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 5rem 1.5rem 4.5rem;
+  padding: 1.75rem 1.5rem;
 }
 
 .footer-inner {
@@ -768,41 +768,16 @@ address a {
   margin: 0 auto;
 }
 
-.footer-top,
-.footer-bottom,
-.footer-columns {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.footer-mark {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-.footer-columns {
-  gap: 3rem;
-}
-
-.footer-columns a {
+.footer-bottom {
   display: flex;
   align-items: center;
-  min-height: 2.4rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.footer-bottom {
-  align-items: end;
-  margin-top: 4rem;
+  justify-content: space-between;
+  gap: 1.5rem;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-.footer-bottom p,
-.footer-columns p {
+.footer-bottom p {
   margin: 0;
 }
 
@@ -860,9 +835,7 @@ address a {
   .focus-grid,
   .plain-list li,
   dl div,
-  .role-row,
-  .footer-top,
-  .footer-bottom {
+  .role-row {
     grid-template-columns: 1fr;
     flex-direction: column;
     align-items: flex-start;
