@@ -2,8 +2,14 @@
 import Base from "../layouts/Base.astro";
 import tie from "../assets/headshot-tie.webp";
 import speaking from "../assets/speaking.webp";
+import graduation from "../assets/cisb-graduation.webp";
 import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, pageTitle, profile } from "../data/profile.js";
+
+const cardPhotos = {
+  speaking,
+  graduation,
+};
 ---
 
 <Base title={pageTitle} description={pageDescription} current="work">
@@ -45,7 +51,9 @@ import { formatDates, pageDescription, pageTitle, profile } from "../data/profil
       <h2 id="experience-heading" class="sr-only">Selected experience</h2>
       <div class="project-list">
         {
-          profile.experience.map((job) => (
+          profile.experience.map((job) => {
+            const photo = cardPhotos[job.visual] ?? cardPhotos[job.cardPhoto];
+            return (
             <a class="project-card" href={`/experience/${job.slug}`}>
               <span class="card-top">
                 <span class="card-heading">
@@ -61,13 +69,19 @@ import { formatDates, pageDescription, pageTitle, profile } from "../data/profil
                 {" — "}
                 {job.points[0]}
               </span>
-              {job.visual === "speaking" ? (
-                <img src={speaking.src} width={speaking.width} height={speaking.height} alt="" />
+              {photo ? (
+                <img
+                  src={photo.src}
+                  width={photo.width}
+                  height={photo.height}
+                  alt={job.cardPhoto === "graduation" ? "Graduates in red gowns tossing caps in front of the Canadian International School of Beijing." : ""}
+                />
               ) : (
                 <span class="card-field" aria-hidden="true">{formatDates(job)}</span>
               )}
             </a>
-          ))
+            );
+          })
         }
       </div>
     </section>
