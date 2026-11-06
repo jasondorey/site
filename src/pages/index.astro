@@ -3,12 +3,19 @@ import Base from "../layouts/Base.astro";
 import tie from "../assets/headshot-tie.webp";
 import speaking from "../assets/speaking.webp";
 import graduation from "../assets/cisb-graduation.webp";
+import campsite from "../assets/matata-campsite.webp";
 import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, pageTitle, profile } from "../data/profile.js";
 
 const cardPhotos = {
   speaking,
   graduation,
+  campsite,
+};
+
+const cardPhotoAlts = {
+  graduation: "Graduates in red gowns tossing caps in front of the Canadian International School of Beijing.",
+  campsite: "Lit tents in a field at night, with the Matata mark.",
 };
 ---
 
@@ -74,7 +81,7 @@ const cardPhotos = {
                   src={photo.src}
                   width={photo.width}
                   height={photo.height}
-                  alt={job.cardPhoto === "graduation" ? "Graduates in red gowns tossing caps in front of the Canadian International School of Beijing." : ""}
+                  alt={cardPhotoAlts[job.cardPhoto] ?? ""}
                 />
               ) : (
                 <span class="card-field" aria-hidden="true">{formatDates(job)}</span>

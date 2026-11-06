@@ -64,6 +64,7 @@ export const profile = {
       slug: "matata",
       org: "Matata Education",
       place: "Beijing, China",
+      cardPhoto: "campsite",
       title: "Managing Director",
       start: { label: "June 2017", datetime: "2017-06" },
       end: { label: "December 2019", datetime: "2019-12" },
