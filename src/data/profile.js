@@ -108,6 +108,7 @@ export const profile = {
       org: "Canadian International School of Beijing",
       place: "Beijing, China",
       detailFigure: "library",
+      cardPhoto: "graduation",
       title: "IB DP Coordinator, Middle/High Teacher",
       start: { label: "August 2007", datetime: "2007-08" },
       end: { label: "June 2017", datetime: "2017-06" },
