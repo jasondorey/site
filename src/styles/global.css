@@ -406,7 +406,13 @@ h1 span {
   margin-top: auto;
 }
 
-.project-card img {
+.project-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1536 / 680;
+  object-fit: cover;
+  object-position: center bottom;
+  flex-shrink: 0;
   margin-top: 2rem;
   border-radius: 0.8rem;
   box-shadow: 0 30px 50px #0006;
