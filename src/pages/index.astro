@@ -17,6 +17,10 @@ const cardPhotoAlts = {
   graduation: "Graduates in red gowns tossing caps in front of the Canadian International School of Beijing.",
   campsite: "Lit tents in a field at night, with the Matata mark.",
 };
+
+const selectedExperience = profile.experience.filter(
+  (job) => job.slug !== "glg" && job.slug !== "ibo",
+);
 ---
 
 <Base title={pageTitle} description={pageDescription} current="work">
@@ -58,7 +62,7 @@ const cardPhotoAlts = {
       <h2 id="experience-heading" class="sr-only">Selected experience</h2>
       <div class="project-list">
         {
-          profile.experience.map((job) => {
+          selectedExperience.map((job) => {
             const photo = cardPhotos[job.visual] ?? cardPhotos[job.cardPhoto];
             return (
             <a class="project-card" href={`/experience/${job.slug}`}>
