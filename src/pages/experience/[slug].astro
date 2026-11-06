@@ -2,7 +2,6 @@
 import Base from "../../layouts/Base.astro";
 import speaking from "../../assets/speaking.webp";
 import cisbLibrary from "../../assets/cisb-coordinator.webp";
-import matataCampsite from "../../assets/matata-campsite.webp";
 import matataCanyoning from "../../assets/matata-canyoning.webp";
 import matataPortrait from "../../assets/matata-portrait.webp";
 import LogoMark from "../../components/LogoMark.astro";
@@ -64,13 +63,6 @@ const figure = figures[job.detailFigure] ?? (job.visual === "speaking" ? figures
           )}
           {index === 0 && job.slug === "matata" && (
             <div class="detail-gallery">
-              <img
-                class="is-wide"
-                src={matataCampsite.src}
-                width={matataCampsite.width}
-                height={matataCampsite.height}
-                alt="Lit tents in a field at night, with the Matata mark."
-              />
               <img
                 src={matataPortrait.src}
                 width={matataPortrait.width}
