@@ -18,6 +18,9 @@ export const profile = {
     display: "https://www.linkedin.com/in/jason-r-dorey/",
     href: "https://www.linkedin.com/in/jason-r-dorey/",
   },
+  github: {
+    href: "https://github.com/jasondorey",
+  },
   summary: [
     "Director-level technology, digital transformation, AI, and EdTech leader with nearly 20 years of experience across technology strategy, product development, business operations, and international education.",
     "Reports directly to the CEO and/or Board Chairman as Director, AI Learning Solutions. Leads enterprise technology initiatives, platform strategy, analytics, and AI adoption across multi-site organizations in Canada and Asia. Brings cross-functional leadership and international business-development experience supporting 15 organizations and initiatives spanning education, technology, and business functions.",
