@@ -2,6 +2,9 @@
 import Base from "../../layouts/Base.astro";
 import speaking from "../../assets/speaking.webp";
 import cisbLibrary from "../../assets/cisb-coordinator.webp";
+import matataCampsite from "../../assets/matata-campsite.webp";
+import matataCanyoning from "../../assets/matata-canyoning.webp";
+import matataPortrait from "../../assets/matata-portrait.webp";
 import LogoMark from "../../components/LogoMark.astro";
 import { profile } from "../../data/profile.js";
 import { akdPortfolio } from "../../data/portfolio.js";
@@ -58,6 +61,29 @@ const figure = figures[job.detailFigure] ?? (job.visual === "speaking" ? figures
               />
               <figcaption>{figure.caption}</figcaption>
             </figure>
+          )}
+          {index === 0 && job.slug === "matata" && (
+            <div class="detail-gallery">
+              <img
+                class="is-wide"
+                src={matataCampsite.src}
+                width={matataCampsite.width}
+                height={matataCampsite.height}
+                alt="Lit tents in a field at night, with the Matata mark."
+              />
+              <img
+                src={matataPortrait.src}
+                width={matataPortrait.width}
+                height={matataPortrait.height}
+                alt="Jason Dorey in a Matata polo."
+              />
+              <img
+                src={matataCanyoning.src}
+                width={matataCanyoning.width}
+                height={matataCanyoning.height}
+                alt="People on ropes in a rocky canyon, with the Matata mark."
+              />
+            </div>
           )}
           <ul>
             {role.points.map((point) => <li>{point}</li>)}
