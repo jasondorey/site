@@ -4,10 +4,19 @@ import LogoMark from "../components/LogoMark.astro";
 import { formatDates, pageDescription, profile } from "../data/profile.js";
 
 const title = "Jason Dorey — Info";
+
+const contents = [
+  { id: "about", label: "About" },
+  { id: "focus", label: "Leadership focus" },
+  { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "technology", label: "Technology & digital experience" },
+];
 ---
 
 <Base title={title} description={pageDescription} current="info">
   <main id="content" class="info">
+    <div class="info-copy">
     <header class="info-hero">
       <p class="overline with-dot">
         <span class="dot-mark" aria-hidden="true"></span>
@@ -21,19 +30,19 @@ const title = "Jason Dorey — Info";
       </p>
     </header>
 
-    <section aria-labelledby="about-heading">
+    <section id="about" aria-labelledby="about-heading">
       <h2 id="about-heading">About</h2>
       {profile.summary.map((paragraph) => <p>{paragraph}</p>)}
     </section>
 
-    <section aria-labelledby="focus-heading">
+    <section id="focus" aria-labelledby="focus-heading">
       <h2 id="focus-heading">Leadership focus</h2>
       <ul class="focus-grid">
         {profile.focus.map((item) => <li>{item}</li>)}
       </ul>
     </section>
 
-    <section aria-labelledby="roles-heading">
+    <section id="experience" aria-labelledby="roles-heading">
       <h2 id="roles-heading">Experience</h2>
       <div class="role-list">
         {
@@ -53,7 +62,7 @@ const title = "Jason Dorey — Info";
       </div>
     </section>
 
-    <section aria-labelledby="education-heading">
+    <section id="education" aria-labelledby="education-heading">
       <h2 id="education-heading">Education</h2>
       <ul class="plain-list">
         {
@@ -67,7 +76,7 @@ const title = "Jason Dorey — Info";
       </ul>
     </section>
 
-    <section aria-labelledby="tech-heading">
+    <section id="technology" aria-labelledby="tech-heading">
       <h2 id="tech-heading">Technology &amp; digital experience</h2>
       <dl>
         {
@@ -80,5 +89,58 @@ const title = "Jason Dorey — Info";
         }
       </dl>
     </section>
+    </div>
+    <nav class="contents" aria-labelledby="contents-label">
+      <p id="contents-label">Contents</p>
+      <ol>
+        {
+          contents.map((item, index) => (
+            <li>
+              <a href={`#${item.id}`} aria-current={index === 0 ? "true" : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
   </main>
+  <script is:inline>
+    (() => {
+      const nav = document.querySelector(".contents");
+      if (!nav) return;
+      const links = [...nav.querySelectorAll("a")];
+      const sections = links
+        .map((link) => document.getElementById(link.hash.slice(1)))
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      let frame = 0;
+      const mark = () => {
+        frame = 0;
+        const line = 150;
+        let current = sections[0];
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= line) current = section;
+        }
+        const last = sections[sections.length - 1];
+        const atEnd =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        if (atEnd && last.getBoundingClientRect().top < window.innerHeight * 0.55) {
+          current = last;
+        }
+        for (const link of links) {
+          if (link.hash === `#${current.id}`) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        }
+      };
+      const onScroll = () => {
+        if (!frame) frame = requestAnimationFrame(mark);
+      };
+      document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+      window.addEventListener("resize", onScroll);
+      window.addEventListener("hashchange", onScroll);
+      mark();
+    })();
+  </script>
 </Base>
