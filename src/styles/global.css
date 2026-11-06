@@ -655,8 +655,26 @@ dd {
   line-height: 1.45;
 }
 
-.detail figure + ul {
+.detail figure + ul,
+.detail-gallery + ul {
   margin-top: 1.75rem;
+}
+
+.detail-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  max-width: 32rem;
+  margin: 2.25rem 0 0;
+}
+
+.detail-gallery .is-wide {
+  grid-column: 1 / -1;
+}
+
+.detail-gallery img {
+  height: auto;
+  border: 1px solid var(--line);
 }
 
 .detail ul {
