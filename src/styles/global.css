@@ -10,6 +10,7 @@
   --line: #f2f2f21f;
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
   --measure: 55.125rem;
+  --reading: 42rem;
   color-scheme: dark;
 }
 
@@ -475,8 +476,8 @@ h1 span {
 
 .info,
 .detail {
-  width: min(100% - 3rem, var(--measure));
-  margin: 0 auto;
+  width: min(100% - 3rem, var(--reading));
+  margin-inline: auto;
   padding: 10.5rem 0 7rem;
 }
 
@@ -571,15 +572,22 @@ h1 span {
 
 @media (min-width: 1240px) {
   .info {
-    width: min(100% - 4rem, calc(var(--measure) + 16rem));
+    width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, var(--measure)) 13.5rem;
-    column-gap: 2.5rem;
+    grid-template-columns: minmax(1.5rem, 1fr) minmax(0, var(--reading)) minmax(1.5rem, 1fr);
     align-items: start;
+  }
+
+  .info-copy {
+    grid-column: 2;
   }
 
   .contents {
     display: block;
+    grid-column: 3;
+    justify-self: start;
+    width: min(13.5rem, calc(100% - 2.5rem));
+    margin-left: 2.5rem;
     position: sticky;
     top: 7.5rem;
   }
@@ -970,10 +978,13 @@ dd {
     padding-top: 12.5rem;
   }
 
-  .info,
-  .detail,
   .projects {
     width: min(100% - 2rem, var(--measure));
+  }
+
+  .info,
+  .detail {
+    width: min(100% - 2rem, var(--reading));
   }
 
   .project-card {
