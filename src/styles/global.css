@@ -270,7 +270,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(180px, 240px);
   gap: 2rem;
-  align-items: end;
+  align-items: center;
   padding: 3.5rem 3rem 3.5rem;
   border: 1px solid #f2f2f24d;
   border-radius: 0 0 1rem 1rem;
