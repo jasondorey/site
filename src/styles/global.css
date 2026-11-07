@@ -1,7 +1,7 @@
 @import "@fontsource/manrope/latin-400.css";
 @import "@fontsource/manrope/latin-500.css";
 @import "@fontsource/manrope/latin-600.css";
-@import "@fontsource/syne/latin-700.css";
+@import "@fontsource/manrope/latin-700.css";
 
 :root {
   --bg: #101010;
@@ -284,11 +284,14 @@ a {
 }
 
 .hero-copy h1 {
-  font-family: Syne, Manrope, sans-serif;
+  font-family: Manrope, "Segoe UI", sans-serif;
   font-weight: 700;
-  font-size: clamp(1.35rem, 5.2cqi, 2rem);
-  line-height: 1.15;
-  letter-spacing: -0.046em;
+  font-size: clamp(1.5rem, 5.7cqi, 2.15rem);
+  line-height: 1.16;
+  letter-spacing: -0.034em;
+  text-shadow:
+    0 0 16px rgba(242, 242, 242, 0.2),
+    0 0 32px rgba(242, 242, 242, 0.08);
 }
 
 .hero-copy h1 span {
@@ -296,7 +299,11 @@ a {
 }
 
 .hero-copy h1 span + span {
-  margin-top: 0.22rem;
+  margin-top: 0.16rem;
+  font-size: 0.84em;
+  font-style: italic;
+  font-synthesis: style;
+  letter-spacing: -0.028em;
 }
 
 @media (max-width: 860px) {
