@@ -279,27 +279,35 @@ a {
 
 .hero-copy {
   animation: rise 0.9s var(--ease) both;
+  width: 100%;
+  container-type: inline-size;
 }
 
 .hero-copy h1 {
   font-family: Syne, Manrope, sans-serif;
   font-weight: 700;
-  font-size: clamp(2.05rem, 4.1vw, 3rem);
-  line-height: 1.04;
-  letter-spacing: -0.042em;
-  text-wrap: balance;
+  font-size: clamp(1.35rem, 5.2cqi, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.046em;
+}
+
+.hero-copy h1 span {
+  white-space: nowrap;
 }
 
 .hero-copy h1 span + span {
-  margin-top: 0.28rem;
+  margin-top: 0.22rem;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 860px) {
   .hero-copy h1 {
-    font-size: 1.85rem;
+    font-size: clamp(1.7rem, 7.2vw, 1.95rem);
     line-height: 1.08;
-    letter-spacing: -0.038em;
-    text-wrap: wrap;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-copy h1 span {
+    white-space: normal;
   }
 }
 
